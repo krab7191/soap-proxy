@@ -1,0 +1,81 @@
+Prefixes:
+     xsd: http://www.w3.org/2001/XMLSchema
+     ns0: http://tempuri.org/
+
+Global elements:
+     ns0:Add(intA: xsd:int, intB: xsd:int)
+     ns0:AddResponse(AddResult: xsd:int)
+     ns0:Divide(intA: xsd:int, intB: xsd:int)
+     ns0:DivideResponse(DivideResult: xsd:int)
+     ns0:Multiply(intA: xsd:int, intB: xsd:int)
+     ns0:MultiplyResponse(MultiplyResult: xsd:int)
+     ns0:Subtract(intA: xsd:int, intB: xsd:int)
+     ns0:SubtractResponse(SubtractResult: xsd:int)
+
+
+Global types:
+     xsd:anyType
+     xsd:ENTITIES
+     xsd:ENTITY
+     xsd:ID
+     xsd:IDREF
+     xsd:IDREFS
+     xsd:NCName
+     xsd:NMTOKEN
+     xsd:NMTOKENS
+     xsd:NOTATION
+     xsd:Name
+     xsd:QName
+     xsd:anySimpleType
+     xsd:anyURI
+     xsd:base64Binary
+     xsd:boolean
+     xsd:byte
+     xsd:date
+     xsd:dateTime
+     xsd:decimal
+     xsd:double
+     xsd:duration
+     xsd:float
+     xsd:gDay
+     xsd:gMonth
+     xsd:gMonthDay
+     xsd:gYear
+     xsd:gYearMonth
+     xsd:hexBinary
+     xsd:int
+     xsd:integer
+     xsd:language
+     xsd:long
+     xsd:negativeInteger
+     xsd:nonNegativeInteger
+     xsd:nonPositiveInteger
+     xsd:normalizedString
+     xsd:positiveInteger
+     xsd:short
+     xsd:string
+     xsd:time
+     xsd:token
+     xsd:unsignedByte
+     xsd:unsignedInt
+     xsd:unsignedLong
+     xsd:unsignedShort
+
+Bindings:
+     Soap11Binding: {http://tempuri.org/}CalculatorSoap
+     Soap12Binding: {http://tempuri.org/}CalculatorSoap12
+
+Service: Calculator
+     Port: CalculatorSoap (Soap11Binding: {http://tempuri.org/}CalculatorSoap)
+         Operations:
+            Add(intA: xsd:int, intB: xsd:int) -> AddResult: xsd:int
+            Divide(intA: xsd:int, intB: xsd:int) -> DivideResult: xsd:int
+            Multiply(intA: xsd:int, intB: xsd:int) -> MultiplyResult: xsd:int
+            Subtract(intA: xsd:int, intB: xsd:int) -> SubtractResult: xsd:int
+
+     Port: CalculatorSoap12 (Soap12Binding: {http://tempuri.org/}CalculatorSoap12)
+         Operations:
+            Add(intA: xsd:int, intB: xsd:int) -> AddResult: xsd:int
+            Divide(intA: xsd:int, intB: xsd:int) -> DivideResult: xsd:int
+            Multiply(intA: xsd:int, intB: xsd:int) -> MultiplyResult: xsd:int
+            Subtract(intA: xsd:int, intB: xsd:int) -> SubtractResult: xsd:int
