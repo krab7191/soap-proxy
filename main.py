@@ -23,8 +23,14 @@ app = Flask(__name__)
 def add():
     x = request.args.get('x')
     y = request.args.get('y')
-    result = soapClient.service.Add(x, y)
-    return jsonify({ "result": result })
+    print(x)
+    print(y)
+    if not x or not y:
+        body = jsonify({ "error": "Missing argument(s)" })
+        return body, 400
+    else:
+        result = soapClient.service.Add(x, y)
+        return jsonify({ "result": result })
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=port, debug=debug)

@@ -11,7 +11,7 @@ COPY . /app
 RUN chmod -R 777 /app/
 
 RUN pip3 install -r requirements.txt
-EXPOSE 5000
+EXPOSE 3001
 
 ENTRYPOINT ["python3"]
 CMD ["main.py"]
