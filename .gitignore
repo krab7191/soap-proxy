@@ -1,2 +1,4 @@
 .env
 soap-proxy
+.vscode
+__pycache__
