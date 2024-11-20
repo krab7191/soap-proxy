@@ -1,0 +1,279 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+      "title": "FastAPI",
+      "version": "0.1.0"
+    },
+    "paths": {
+      "/add": {
+        "get": {
+          "summary": "Add",
+          "operationId": "add_add_get",
+          "parameters": [
+            {
+              "name": "x",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "title": "X"
+              }
+            },
+            {
+              "name": "y",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "title": "Y"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Response"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/subtract": {
+        "get": {
+          "summary": "Subtract",
+          "operationId": "subtract_subtract_get",
+          "parameters": [
+            {
+              "name": "x",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "title": "X"
+              }
+            },
+            {
+              "name": "y",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "title": "Y"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Response"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/multiply": {
+        "get": {
+          "summary": "Multiply",
+          "operationId": "multiply_multiply_get",
+          "parameters": [
+            {
+              "name": "x",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "title": "X"
+              }
+            },
+            {
+              "name": "y",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "title": "Y"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Response"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/divide": {
+        "get": {
+          "summary": "Divide",
+          "operationId": "divide_divide_get",
+          "parameters": [
+            {
+              "name": "x",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "title": "X"
+              }
+            },
+            {
+              "name": "y",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "title": "Y"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Response"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "HTTPValidationError": {
+          "properties": {
+            "detail": {
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              },
+              "type": "array",
+              "title": "Detail"
+            }
+          },
+          "type": "object",
+          "title": "HTTPValidationError"
+        },
+        "Response": {
+          "properties": {
+            "operation": {
+              "type": "string",
+              "title": "Operation"
+            },
+            "result": {
+              "type": "integer",
+              "title": "Result"
+            },
+            "soap_request": {
+              "type": "string",
+              "title": "Soap Request"
+            },
+            "soap_response": {
+              "type": "string",
+              "title": "Soap Response"
+            }
+          },
+          "type": "object",
+          "required": [
+            "operation",
+            "result",
+            "soap_request",
+            "soap_response"
+          ],
+          "title": "Response"
+        },
+        "ValidationError": {
+          "properties": {
+            "loc": {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "type": "array",
+              "title": "Location"
+            },
+            "msg": {
+              "type": "string",
+              "title": "Message"
+            },
+            "type": {
+              "type": "string",
+              "title": "Error Type"
+            }
+          },
+          "type": "object",
+          "required": [
+            "loc",
+            "msg",
+            "type"
+          ],
+          "title": "ValidationError"
+        }
+      }
+    }
+  }
