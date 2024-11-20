@@ -30,6 +30,7 @@ calculatorClient = Client(wsdl='http://www.dneonline.com/calculator.asmx?WSDL', 
 # Initialize Fast API app
 app = FastAPI()
 
+# Serve a page with some quick links
 @app.get("/")
 def home():
     html_content = """
@@ -53,12 +54,14 @@ def home():
     """
     return HTMLResponse(content=html_content, status_code=200)
 
+# Type the fn signatures for OpenApi spec
 class Response(BaseModel):
     operation: str
     result: int
     soap_request: str
     soap_response: str
 
+# Main operations
 @app.get("/add")
 def add(x: int, y: int) -> Response:
     result = calculatorClient.service.Add(x, y)
@@ -83,6 +86,7 @@ def divide(x: int, y: int) -> Response:
     xml = get_xml()
     return { "operation": "divide", "result": result, "soap_request": xml[0], "soap_response": xml[1]  }
 
+# Helpers
 def get_xml():
     req_xml = etree.tostring(history.last_sent["envelope"], encoding="us-ascii", pretty_print=True)
     res_xml = etree.tostring(history.last_received["envelope"], encoding="us-ascii", pretty_print=True)
